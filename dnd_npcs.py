@@ -20,6 +20,7 @@ class npc:
     
     def get_race(self):
         return self.race
+    
 
 
 class detailed_npc(npc):
@@ -34,18 +35,22 @@ class detailed_npc(npc):
 Update to have skills, attacks, and spells later
 """
 class story_npc(detailed_npc):
-    def __init__(self, firstname = '', lastname = '', race = '', languages = 'Common', ac = 10, speed = 30, hp = 20, status = ''):
+    def __init__(self, firstname = '', lastname = '', race = '', languages = 'Common', ac = 10, speed = 30, hp = 20, current_hp = 20, status = ''):
         super().__init__(firstname, lastname, race, languages, ac, speed, status)
-        self.hp =hp
+        self.hp = hp
+        self.current_hp = current_hp
 
+    def get_current_HP(self):
+        return self.current_HP
 
-def main():
-    bob = npc("Bob", "Smith", "Human")
-    print(bob.get_race())
-
-    alice = story_npc("Alice", "Smith", "Human", "Common", 13, 30, 25)
-    print(alice.ac)
+    def change_HP(self, amount):
+        self.HP = self.hp + amount
 
 
 if __name__ == "__main__":
-    main()
+    bob = npc("Bob", "Smith", "Human")
+    print(bob.get_race())
+    # print(help(npc))
+
+    alice = story_npc("Alice", "Smith", "Human", "Common", 13, 30, 25)
+    print(alice.ac)

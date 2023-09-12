@@ -1,0 +1,6 @@
+import unittest
+from dnd_npcs import npc, detailed_npc, story_npc
+
+class DnDNPCTestCase(unittest.TestCase):
+    story_npc_1 = story_npc("Bob", "Smith", "Human", "Common", 10, 30, 20, 20)
+    story_npc_2 = story_npc("Alice", "Smith", "Human", "Common", 10, 30, 20, 20)
